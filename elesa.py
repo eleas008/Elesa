@@ -389,15 +389,16 @@ def get_weather(city):
         return "Weather request stopped."
         
     try:
-        # Using a free API (no key required)
-        url = f"https://wttr.in/{city}?format=j1"
+        #use a free api
+        url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid=07522802429f9148fc72239e64083339"
         response = requests.get(url)
         data = response.json()
-        current = data['current_condition'][0]
-        temp_c = current['temp_C']
-        temp_f = current['temp_F']
-        desc = current['weatherDesc'][0]['value']
-        humidity = current['humidity']
+        
+        # Extract data from the correct structure
+        temp_c = data['main']['temp']
+        temp_f = round((temp_c * 9/5) + 32, 1)
+        desc = data['weather'][0]['description']
+        humidity = data['main']['humidity']
         
         weather_info = f"Weather in {city}: {desc}, {temp_c}°C ({temp_f}°F), Humidity: {humidity}%"
         return weather_info
