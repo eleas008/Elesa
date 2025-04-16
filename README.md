@@ -2,7 +2,7 @@
 interface for performing various tasks and retrieving information.The program features both voice
 and text input methods with a modern, user-friendly interface.
 
-2.Core Features
+2.Core Features:
    i)Voice Interaction: Recognizes voice commands using wake words ("Elisa", "Elesa", "Aleesa")
    ii)Text Input: Alternative method for entering commands through typing
    iii)Customizable Voice: Adjustable voice type, speech rate, and volume settings
